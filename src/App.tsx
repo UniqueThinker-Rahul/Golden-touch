@@ -280,9 +280,14 @@ export default function App() {
                   key={service.title}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
+                  whileHover={{ 
+                    scale: 1.03, 
+                    y: -10,
+                    transition: { duration: 0.3, ease: "easeOut" }
+                  }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="group relative h-[500px] overflow-hidden rounded-lg bg-on-surface"
+                  className="group relative h-[500px] overflow-hidden rounded-lg bg-on-surface cursor-pointer shadow-xl hover:shadow-[0_20px_50px_rgba(212,175,55,0.2)]"
                 >
                   <img 
                     src={service.image}
@@ -291,10 +296,12 @@ export default function App() {
                     referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent p-10 flex flex-col justify-end">
-                    <h3 className="text-white text-3xl font-headline mb-4">{service.title}</h3>
-                    <p className="text-white/70 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                      {service.description}
-                    </p>
+                    <div className="transform group-hover:translate-y-[-10px] transition-transform duration-500">
+                      <h3 className="text-white text-3xl font-headline mb-4">{service.title}</h3>
+                      <p className="text-white/70 text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-all duration-500">
+                        {service.description}
+                      </p>
+                    </div>
                   </div>
                 </motion.div>
               ))}
