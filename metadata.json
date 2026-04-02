@@ -1,0 +1,7 @@
+{
+  "name": "Golden Touch Salon & Academy",
+  "description": "Luxury unisex salon and professional beauty academy in Greater Noida offering premium grooming and education.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
